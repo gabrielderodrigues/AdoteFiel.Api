@@ -1,5 +1,4 @@
 using AdoteFiel.Api.Services;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Controller and Services information
 builder.Services.AddControllers();
 builder.Services.AddScoped<LocationApiService>();
+
+// Add AutoMap extension
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
